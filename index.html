@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VSV Santos Comércio | Minimercado e Conveniência em Maceió</title>
+    <meta name="description" content="Sua mercearia e minimercado de confiança em Maceió. Produtos alimentícios selecionados, itens de primeira necessidade e conveniência para o seu dia a dia.">
+    <meta name="robots" content="index, follow">
+    
+    <style>
+        /* --- ESTILOS GERAIS E VARIÁVEIS --- */
+        :root {
+            --primary: #166534;       /* Verde Escuro / Frescor */
+            --primary-hover: #14532d;
+            --secondary: #ea580c;     /* Laranja / Cítrico e Apetitoso */
+            --secondary-hover: #c2410c;
+            --text-dark: #1e293b;
+            --text-light: #f8fafc;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --border-color: #e2e8f0;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BOTÕES --- */
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background-color: var(--secondary);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(234, 88, 12, 0.2);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(234, 88, 12, 0.3);
+        }
+
+        /* --- CABEÇALHO (NAVBAR) --- */
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+            border-bottom: 3px solid var(--primary);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: var(--primary);
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-menu a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(22, 101, 52, 0.8), rgba(22, 101, 52, 0.9)), 
+                        url('https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover;
+            color: var(--white);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 35px auto;
+            color: #e2e8f0;
+        }
+
+        /* --- QUEM SOMOS --- */
+        .about {
+            padding: 80px 0;
+            background-color: var(--white);
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 32px;
+            margin-bottom: 25px;
+            color: var(--primary);
+            font-weight: 800;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary);
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .about-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 16px;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        /* --- DEPARTAMENTOS (CNAES) --- */
+        .departments {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .dep-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .dep-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 35px 25px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            border: 1px solid var(--border-color);
+        }
+
+        .dep-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+            border-color: var(--primary);
+        }
+
+        .dep-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .dep-card p {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* --- CONTATO E LOCALIZAÇÃO --- */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+
+        .contact-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+            margin-top: 40px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+            background-color: var(--bg-light);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary);
+        }
+
+        .info-item strong {
+            display: block;
+            color: var(--secondary);
+            font-size: 13px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            letter-spacing: 0.5px;
+        }
+
+        .info-item p {
+            font-size: 16px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .contact-form {
+            background-color: var(--primary);
+            padding: 40px;
+            border-radius: 8px;
+            color: var(--white);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #f0fdf4;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+            border: 1px solid rgba(255,255,255,0.2);
+            transition: var(--transition);
+        }
+
+        .form-group input::placeholder, .form-group textarea::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background-color: rgba(255,255,255,0.2);
+        }
+
+        /* --- FOOTER EXIGIDO PELO GOOGLE ADS --- */
+        footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 50px 0 20px 0;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .footer-legal {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.8;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+        }
+
+        /* --- BANNER DE COOKIES E MODAIS --- */
+        .cookie-banner {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background-color: var(--white);
+            color: var(--text-dark);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+            display: none;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            z-index: 9999;
+            border: 1px solid var(--border-color);
+        }
+
+        .cookie-text { font-size: 14px; max-width: 75%; }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(15, 23, 42, 0.8);
+            z-index: 10000;
+            justify-content: center; align-items: center; padding: 20px;
+        }
+
+        .modal-content {
+            background-color: var(--white);
+            padding: 40px;
+            border-radius: 8px;
+            max-width: 700px; width: 100%; max-height: 85vh;
+            overflow-y: auto; position: relative;
+        }
+
+        .close-modal {
+            position: absolute; top: 15px; right: 20px;
+            font-size: 28px; cursor: pointer; color: var(--text-dark);
+        }
+
+        .modal-content h2 { color: var(--primary); margin-bottom: 20px; }
+        .modal-content h3 { color: var(--primary); margin: 20px 0 10px 0; font-size: 16px; }
+
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 32px; }
+            .cookie-banner { flex-direction: column; text-align: center; }
+            .cookie-text { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">VSV Santos <span>Comércio</span></div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">A Empresa</a></li>
+                <li><a href="#setores">Setores</a></li>
+                <li><a href="#contato">Fale Conosco</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <h1>Qualidade, Frescor e Praticidade para a sua Família</h1>
+            <p>Seu minimercado e armazém de confiança. Trabalhamos com uma seleção rigorosa de produtos alimentícios em geral e mercadorias de conveniência para o seu dia a dia.</p>
+            <a href="#contato" class="btn">Saiba Mais</a>
+        </div>
+    </section>
+
+    <!-- QUEM SOMOS -->
+    <section id="sobre" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre a VSV Santos Comércio</h2>
+            <p class="about-text">
+                A <strong>V S V Santos Comercio LTDA</strong> é uma sociedade empresária dedicada ao comércio varejista de mercadorias. Com foco prioritário no setor de minimercados, mercearias e armazéns, nossa operação matriz visa suprir a demanda local por alimentos frescos, produtos de limpeza, higiene e itens essenciais para a casa. Fundamentamos nossa atuação no rigor comercial, na procedência dos itens de nossa prateleira e no atendimento respeitoso aos nossos clientes e parceiros fornecedores.
+            </p>
+        </div>
+    </section>
+
+    <!-- DEPARTAMENTOS -->
+    <section id="setores" class="departments">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Nossos Departamentos</h2>
+            <div class="dep-grid">
+                <div class="dep-card">
+                    <h3>Mercearia e Grãos</h3>
+                    <p>Ampla variedade de alimentos secos, cereais, grãos, massas e conservas. O abastecimento perfeito para a despensa da sua casa.</p>
+                </div>
+                <div class="dep-card">
+                    <h3>Hortifrúti e Frescos</h3>
+                    <p>Frutas, legumes e verduras selecionados com foco em procedência e frescor. Reposição constante para garantir a qualidade.</p>
+                </div>
+                <div class="dep-card">
+                    <h3>Bebidas e Frios</h3>
+                    <p>Setor climatizado com laticínios, embutidos, sucos, refrigerantes e água mineral, armazenados dentro dos mais rígidos padrões sanitários.</p>
+                </div>
+                <div class="dep-card">
+                    <h3>Higiene e Limpeza</h3>
+                    <p>As melhores marcas do mercado em produtos de higiene pessoal e limpeza doméstica para trazer praticidade à sua rotina.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contact">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center;">Fale com a Administração</h2>
+            <div class="contact-box">
+                <div>
+                    <p style="margin-bottom: 30px; font-size: 16px; color: #64748b;">Quer fornecer para nossa rede ou possui alguma dúvida sobre o nosso minimercado? Entre em contato com a nossa equipe administrativa.</p>
+                    <div class="info-item">
+                        <strong>Endereço Administrativo</strong>
+                        <p>Rua Desportista Humberto Guimarães, 46, Apt 601<br>Ponta Verde, Maceió - AL<br>CEP: 57035-030</p>
+                    </div>
+                    <div class="info-item">
+                        <strong>E-mail Comercial</strong>
+                        <p>contato@vsvsantoscomercio.com.br</p> 
+                    </div>
+                    <div class="info-item">
+                        <strong>Telefone de Contato</strong>
+                        <p>(82) 99900-0000</p>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form onsubmit="event.preventDefault(); alert('Sua mensagem foi enviada. Nossa equipe administrativa entrará em contato em breve.');">
+                        <div class="form-group">
+                            <label for="nome">Nome Completo / Empresa</label>
+                            <input type="text" id="nome" required placeholder="Como devemos chamá-lo?">
+                        </div>
+                        <div class="form-group">
+                            <label for="assunto">Assunto</label>
+                            <input type="text" id="assunto" required placeholder="Ex: Sou fornecedor de Hortifrúti">
+                        </div>
+                        <div class="form-group">
+                            <label for="mensagem">Sua Mensagem</label>
+                            <textarea id="mensagem" rows="4" required placeholder="Escreva sua dúvida ou proposta comercial..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="width: 100%; border: 1px solid rgba(255,255,255,0.2);">Enviar Mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER (Compliance Google Ads) -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#" onclick="openModal('policyModal'); return false;">Política de Privacidade</a> | 
+                <a href="#" onclick="openModal('termsModal'); return false;">Termos de Uso Comercial</a>
+            </div>
+            <div class="footer-legal">
+                © 2026 <strong>V S V Santos Comercio LTDA</strong>. Todos os direitos reservados.<br>
+                Razão Social: V S V Santos Comercio LTDA | CNPJ: 66.889.021/0001-18 | Porte: ME<br>
+                Endereço Corporativo: Rua Desportista Humberto Guimarães, 46, Apt 601, Ponta Verde, Maceió - AL, CEP 57035-030<br>
+                Situação Cadastral: Ativa junto à Receita Federal do Brasil (Data de Abertura: 20/05/2026).<br>
+                <span style="font-size: 11px; display:block; margin-top:15px; opacity: 0.6;">Site de finalidade institucional representativo da atividade econômica (CNAE Principal: 47.12-1-00), em plena conformidade com as diretrizes e políticas de anunciante do Google Ads.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- COOKIE BANNER -->
+    <div id="cookieBanner" class="cookie-banner">
+        <div class="cookie-text">
+            Este site institucional utiliza cookies operacionais para garantir a melhor funcionalidade e navegação. Ao continuar, você concorda com nossas diretrizes e a Lei Geral de Proteção de Dados (LGPD).
+        </div>
+        <button class="btn" onclick="acceptCookies()">Aceitar Cookies</button>
+    </div>
+
+    <!-- MODAL POLÍTICA DE PRIVACIDADE -->
+    <div id="policyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('policyModal')">&times;</span>
+            <h2>Política de Privacidade Institucional</h2>
+            <p>O compromisso da <strong>V S V Santos Comercio LTDA</strong> com a transparência reflete no rigor com que tratamos seus dados em nossos canais de atendimento.</p>
+            <h3>1. Coleta de Dados</h3>
+            <p>Somente os dados inseridos voluntariamente no formulário de contato são retidos para garantir o retorno aos clientes e fornecedores interessados em nosso mix de mercearia.</p>
+            <h3>2. Segurança e LGPD</h3>
+            <p>Não compartilhamos, vendemos ou expomos as informações comerciais recebidas pelo site para terceiros sem o consentimento direto ou obrigação de ordem judicial cabível.</p>
+            <h3>3. Cookies</h3>
+            <p>O rastreio de navegação tem caráter puramente analítico (tráfego orgânico e pago) e anônimo, não identificando os usuários a fim de proteger sua identidade pessoal.</p>
+        </div>
+    </div>
+
+    <!-- MODAL TERMOS DE USO -->
+    <div id="termsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal('termsModal')">&times;</span>
+            <h2>Termos de Representação e Atuação</h2>
+            <p>A utilização deste site indica aceitação dos seguintes parâmetros relativos à operação comercial:</p>
+            <h3>1. Precificação de Mercado</h3>
+            <p>O portal possui cunho de vitrine corporativa. Valores, promoções e a disponibilidade do estoque de perecíveis, alimentos, hortifrúti e bebidas ocorrem apenas na loja física e estão sujeitos à sazonalidade mercadológica diária.</p>
+            <h3>2. Conformidade Regulamentar</h3>
+            <p>Operamos sob a inscrição no CNAE 47.12-1-00, respeitando as normas da vigilância sanitária em Maceió-AL referentes ao armazenamento e refrigeração de produtos alimentícios do comércio varejista.</p>
+            <h3>3. Autenticidade Cadastral</h3>
+            <p>Conforme regulação de publicidade e transparência online, o rodapé do portal reflete de forma íntegra a qualificação fiscal da sociedade registrada sob o CNPJ 66.889.021/0001-18.</p>
+        </div>
+    </div>
+
+    <!-- SCRIPTS JAVASCRIPT -->
+    <script>
+        window.onload = function() {
+            if (!localStorage.getItem('vsvCookies')) {
+                document.getElementById('cookieBanner').style.display = 'flex';
+            }
+        };
+
+        function acceptCookies() {
+            localStorage.setItem('vsvCookies', 'true');
+            document.getElementById('cookieBanner').style.display = 'none';
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
